@@ -20,12 +20,17 @@
 ```
 ##### 2. Installing Kubelet and Kubeadm : 
 	       1. SSH into the machine and become root if you are not already
-         ```bash 
-		        $ sudo -i
-         ```   
-	2. Install latest version of kubeadm  
+``` 
+			$ sudo -i
+```   
+		2. Install latest version of kubeadm  
+```bash 		
 	 	# apt-get update && apt-get install -y apt-transport-https
-	3. # curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+```		
+	3. 
+```bash	
+		curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+```		
 	4. #  
 ```
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
@@ -37,10 +42,10 @@ EOF
 	6. Installing kubelet and kubeadm
 		# apt-get install -y kubelet kubeadm
 
-4. Create cluster : 
+##### 3. Create cluster : 
 1. Intalling kubeadm on your master node
 	a. Initializing master node
-		# kubeadm init --skip-preflight-checks
+		# kubeadm init 
 	b. exit from the root user
 		$ exit
 	d. To start using the cluster need to run (as a regular user)
@@ -49,9 +54,13 @@ EOF
 		$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 	
-e. To create a POD network install weave network
-		$ kubectl apply -n kube-system -f "https://cloud.weave.works/k8s/net?K8s-version=$(kubectl version | base64 | tr -d '\n')" 
+	e. To create a POD network install weave network
+```
+		$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+```		
+		
 	f.  $ kubectl get pods  --all-namespaces
+```
 NAMESPACE     NAME                                       READY     STATUS    RESTARTS   AGE
 kube-system   etcd-ip-172-31-29-159                      1/1       Running   0          2m
 kube-system   kube-apiserver-ip-172-31-29-159            1/1       Running   0          2m
@@ -60,14 +69,14 @@ kube-system   kube-dns-2425271678-jv13r                  3/3       Running   0  
 kube-system   kube-proxy-bns8z                           1/1       Running   0          2m
 kube-system   kube-scheduler-ip-172-31-29-159            1/1       Running   0          2m
 kube-system   weave-net-tlf8x                            2/2       Running   0          1m
- 	
+ ```	
 	g.  $ kubectl get nodes
 NAME               	STATUS    AGE       VERSION
 ip-172-31-29-159   	Ready        6m           v1.7.1 
  
-Steps For installing Kubenetes on Worker Node
+##### Steps For installing Kubenetes on Worker Node
 
-1.Docker Installation:	
+### 1.Docker Installation:	
    
    1.1 Install using the repository
       
@@ -81,7 +90,7 @@ Steps For installing Kubenetes on Worker Node
   	3. Verify docker installation
 		$ sudo docker run hello-world
 
-2. Installing Kubelet and Kubeadm : 
+### 2. Installing Kubelet and Kubeadm : 
 	1. SSH into the machine and become root if you are not already
 		$ sudo -i
 	2. Install latest version of kubeadm  
@@ -94,14 +103,15 @@ Steps For installing Kubenetes on Worker Node
 		$ apt-get update
 	6. Installing kubelet and kubeadm
 		$ apt-get install -y kubelet kubeadm
-3. Join node to the master
-         	1.SSH to the machine 
+### 3. Join node to the master
+       	1.SSH to the machine 
      	2.Become root (e.g. sudo su -) 
  	3.Run the command that was output by kubeadm init. For example:
-$ kubeadm join --token <token> <master-ip>:<master-port>
-	4.To get the token of master is received on executing command  “kubeadm init” in 		     Master
-	
+```	
+	$ kubeadm join --token <token> <master-ip>:<master-port>
+```
+	4.To get the token of master is received on executing command  “kubeadm init” in Master
 
 
 
-kubeadm join --token 77b91b.0fa5009c2b0b227a 172.31.20.158:443 --skip-preflight-checks
+kubeadm join --token 77b91b.0fa5009c2b0b227a 172.31.20.158:443
