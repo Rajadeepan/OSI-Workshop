@@ -33,9 +33,9 @@
 ```		
 	4. #  
 ```
-cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
-deb http://apt.kubernetes.io/ kubernetes-xenial main 
-EOF
+		cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
+		deb http://apt.kubernetes.io/ kubernetes-xenial main 
+		EOF
 ```
 	5. update
 		# apt-get update
@@ -45,21 +45,27 @@ EOF
 ##### 3. Create cluster : 
 1. Intalling kubeadm on your master node
 	a. Initializing master node
+	 ```
 		# kubeadm init 
+        ```
 	b. exit from the root user
+	```
 		$ exit
-	d. To start using the cluster need to run (as a regular user)
+	```
+	c To start using the cluster need to run (as a regular user)
+	```
 		$ mkdir -p $HOME/.kube
 		$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 		$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+        ```
 	
-	e. To create a POD network install weave network
+	d To create a POD network install weave network
 ```
 		$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```		
 		
-	f.  $ kubectl get pods  --all-namespaces
+	f.  Verify all components are running
+		$ kubectl get pods  --all-namespaces
 ```
 NAMESPACE     NAME                                       READY     STATUS    RESTARTS   AGE
 kube-system   etcd-ip-172-31-29-159                      1/1       Running   0          2m
@@ -95,10 +101,16 @@ ip-172-31-29-159   	Ready        6m           v1.7.1
 		$ sudo -i
 	2. Install latest version of kubeadm  
 	 	$ apt-get update && apt-get install -y apt-transport-https
-	3.$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-	4. $ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-	      > deb http://apt.kubernetes.io/ kubernetes-xenial main
-	       > EOF
+	3.  
+	```
+		$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+	```
+	4.
+	```
+		cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
+		deb http://apt.kubernetes.io/ kubernetes-xenial main 
+		EOF
+	```
 	5. update
 		$ apt-get update
 	6. Installing kubelet and kubeadm
