@@ -4,7 +4,7 @@
 
 ## 1.Docker Installation:
  
-   ### 1.1 Install using the repository
+   ####  Install using the repository
       
 	 1.Update the apt package index:
 ```bash	     
@@ -88,7 +88,7 @@
 
 ### 1.Docker Installation:	
    
-   1.1 Install using the repository
+   #### Install using the repository
       
 	1.Update the apt package index:
 ```bash		     
