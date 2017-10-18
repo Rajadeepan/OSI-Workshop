@@ -50,13 +50,13 @@
 1. Intalling kubeadm on your master node
 
 	a. Initializing master node
-	 ```
+```bash	
 		$ kubeadm init 
-        ```
+```
 	b. exit from the root user
-	```
+```bash
 		$ exit
-	```
+```
 	c. To start using the cluster need to run (as a regular user)
 	```
 		$ mkdir -p $HOME/.kube
