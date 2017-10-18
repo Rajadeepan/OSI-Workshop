@@ -8,26 +8,26 @@
       
 	 1.Update the apt package index:
 ```bash	     
-    		$ sudo apt-get update
+    	    $ sudo apt-get update
 ```	 
 	2.  Install Docker
 ```bash	      
-	 	$ apt-get install -y docker.io
+	    $ apt-get install -y docker.io
 ```
 	3. Verify docker installation
 ```bash         
-		$ sudo docker run hello-world
+	    $ sudo docker run hello-world
 ```
 ##### 2. Installing Kubelet and Kubeadm : 
-	   1. SSH into the machine and become root if you are not already
+	1. SSH into the machine and become root if you are not already
 ``` 
 		$ sudo -i
 ```   
-	   2. Install latest version of kubeadm  
+	2. Install latest version of kubeadm  
 ```bash 		
 	 	$ apt-get update && apt-get install -y apt-transport-https
 ```		
-	   3. Add the GPG key for the official Docker repository to the system
+	3. Add the GPG key for the official Docker repository to the system
 ```bash	
 		$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 ```		
@@ -63,12 +63,10 @@
 		$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 		$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-	
 	d. To create a POD network install weave network
 ```
 		$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```		
-		
 	f.  Verify all components are running
 		$ kubectl get pods  --all-namespaces
 ```
@@ -93,25 +91,32 @@
    1.1 Install using the repository
       
 	1.Update the apt package index:
-	     
-    		$ sudo apt-get update
-	
-	2.  install
+```bash		     
+    	   $ sudo apt-get update
+```	
+	2.  Install docker
+```bash		
 		$ apt-get install -y docker.io
-
-  	3. Verify docker installation
+```
+	3. Verify docker installation
+```bash		
 		$ sudo docker run hello-world
+```
 
 ### 2. Installing Kubelet and Kubeadm : 
 	1. SSH into the machine and become root if you are not already
+```bash
 		$ sudo -i
+```		
 	2. Install latest version of kubeadm  
+```bash	
 	 	$ apt-get update && apt-get install -y apt-transport-https
-	3.  
-	```
+```		
+	3.  Add the GPG key for the official Docker repository to the system
+```bash
 		$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-	```
-	4.
+```
+	4. Add the Docker repository
 	```
 		cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
 		deb http://apt.kubernetes.io/ kubernetes-xenial main 
