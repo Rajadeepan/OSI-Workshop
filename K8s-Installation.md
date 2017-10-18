@@ -118,20 +118,25 @@
 		$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 ```
 	4. Add the Docker repository
-	```
+```bash
 		cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
 		deb http://apt.kubernetes.io/ kubernetes-xenial main 
 		EOF
-	```
-	5. update
+```
+	5. Update
+```bash	
 		$ apt-get update
+```		
 	6. Installing kubelet and kubeadm
+```bash	
 		$ apt-get install -y kubelet kubeadm
+```		
 ### 3. Join node to the master
-       	1.SSH to the machine 
-     	2.Become root (e.g. sudo su -) 
- 	3.Run the command that was output by kubeadm init. For example:
-```	
+
+  	1.SSH to the machine 
+  	2.Become root (e.g. sudo su -) 
+  	3.Run the command that was output by kubeadm init. For example:
+```bash	
 	$ kubeadm join --token <token> <master-ip>:<master-port>
 ```
 	4.To get the token of master is received on executing command  “kubeadm init” in Master
