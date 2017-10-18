@@ -11,8 +11,7 @@
     		$ sudo apt-get update
 ```	 
            2.  Install Docker
-```bash	          
-	      	$ apt-get install -y docker.io
+```bash	       $ apt-get install -y docker.io
 ```
 	   3. Verify docker installation
 ```bash         
