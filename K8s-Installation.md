@@ -105,7 +105,7 @@
 
 ### 2. Installing Kubelet and Kubeadm : 
 
-        1. SSH into the machine and become root if you are not already
+	1. SSH into the machine and become root if you are not already
 ```bash
 		$ sudo -i
 ```	
