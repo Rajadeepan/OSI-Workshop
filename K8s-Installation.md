@@ -48,6 +48,7 @@
 
 ##### 3. Create cluster : 
 1. Intalling kubeadm on your master node
+
 	a. Initializing master node
 	 ```
 		$ kubeadm init 
