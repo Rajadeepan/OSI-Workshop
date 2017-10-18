@@ -46,8 +46,8 @@
 	      $ apt-get install -y kubelet kubeadm
 ```		
 
-##### 3. Create cluster : 
-1. Intalling kubeadm on your master node
+##### 3. Create cluster :  
+ #### Installing kubeadm on your master node
 
 	a. Initializing master node
 ```bash	
