@@ -6,14 +6,15 @@
  
    ### 1.1 Install using the repository
       
-	   1.Update the apt package index:
+	 #  1.Update the apt package index:
 ```bash	     
     		$ sudo apt-get update
 ```	 
-           2.  Install Docker
-```bash	       $ apt-get install -y docker.io
+        #   2.  Install Docker
+```bash	      
+	 	$ apt-get install -y docker.io
 ```
-	   3. Verify docker installation
+	#   3. Verify docker installation
 ```bash         
 		$ sudo docker run hello-world
 ```
