@@ -6,7 +6,7 @@
  
    ####  Install using the repository
       
-	 1.Update the apt package index:
+	1. Update the apt package index:
 ```bash	     
     	    $ sudo apt-get update
 ```	 
