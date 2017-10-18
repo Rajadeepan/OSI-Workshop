@@ -6,17 +6,17 @@
  
    ### 1.1 Install using the repository
       
-	       1.Update the apt package index:
+	   1.Update the apt package index:
 ```bash	     
     		$ sudo apt-get update
 ```	 
-         2.  Install Docker
+           2.  Install Docker
 ```bash	          
 	      	$ apt-get install -y docker.io
 ```
-	       3. Verify docker installation
+	   3. Verify docker installation
 ```bash         
-		     $ sudo docker run hello-world
+		$ sudo docker run hello-world
 ```
 ##### 2. Installing Kubelet and Kubeadm : 
 	       1. SSH into the machine and become root if you are not already
