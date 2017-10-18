@@ -2,7 +2,7 @@
 <h2> Steps for Installing Kubernetes </h2>
 </p>
 
-##### 1.Docker Installation:
+## 1.Docker Installation:
  
    ### 1.1 Install using the repository
       
@@ -53,16 +53,16 @@
 ```bash	
 		$ kubeadm init 
 ```
-	b. exit from the root user
+	b. Exit from the root user
 ```bash
 		$ exit
 ```
 	c. To start using the cluster need to run (as a regular user)
-	```
+```bash
 		$ mkdir -p $HOME/.kube
 		$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 		$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
-        ```
+```
 	
 	d. To create a POD network install weave network
 ```
