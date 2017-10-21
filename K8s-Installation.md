@@ -132,9 +132,9 @@ EOF
 ```
 	4. Add the Docker repository
 ```
-		cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
-		deb http://apt.kubernetes.io/ kubernetes-xenial main 
-		EOF
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
+deb http://apt.kubernetes.io/ kubernetes-xenial main 
+EOF
 ```
 	5. Update
 ```bash	
