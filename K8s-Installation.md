@@ -46,7 +46,7 @@ EOF
 ```		
 	6. Installing kubelet and kubeadm
 ```bash	
-	      $ apt-get install -y kubelet kubeadm
+	      $ apt-get install -y kubelet kubeadm kubectl
 ```		
 
 ##### 3. Create cluster :  
