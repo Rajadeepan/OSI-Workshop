@@ -146,16 +146,15 @@ EOF
 ```		
 ### 3. Join node to the master
 
-  	1.SSH to the machine 
+  	1.SSH to the slave machine 
   	2.Become root (e.g. sudo su -) 
   	3.Run the command that was output by kubeadm init. For example:
 ```bash	
 	$ kubeadm join --token <token> <master-ip>:<master-port>
 ```
 	4.To get the token of master is received on executing command  “kubeadm init” in Master
-
-
-
+```
 kubeadm join --token b019d9.1c2bceadba43a96a 10.140.0.2:6443 --discovery-t
 oken-ca-cert-hash sha256:0ff9a5cc627d07d038aa959fb736e2999da0f535de0bd04e69a
 916c43e5c53a3
+```
