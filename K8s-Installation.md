@@ -5,16 +5,19 @@
 ## 1.Docker Installation:
  
    ####  Install using the repository
-      
-	1. Update the apt package index:
+	1. SSH into the machine and become root if you are not already
+``` 
+	    $ sudo -i
+```      
+	2. Update the apt package index:
 ```bash	     
     	    $ sudo apt-get update
 ```	 
-	2.  Install Docker
+	3.  Install Docker
 ```bash	      
 	    $ apt-get install -y docker.io
 ```
-	3. Verify docker installation
+	4. Verify docker installation
 ```bash         
 	    $ sudo docker run hello-world
 ```
