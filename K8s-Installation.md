@@ -56,23 +56,23 @@ EOF
 ```bash	
 	      $ kubeadm init 
 ```
-        b. Save the join command to run on slave node 
+	b. Save the join command to run on slave node 
 ```bash
 	kubeadm join --token b019d9.1c2bceadba43a96a 10.140.0.2:6443 --discovery-t
 	oken-ca-cert-hash sha256:0ff9a5cc627d07d038aa959fb736e2999da0f535de0bd04e69a
 	916c43e5c53a3
 ```
-	b. Exit from the root user
+	c. Exit from the root user
 ```bash
 	      $ exit
 ```
-	c. To start using the cluster need to run (as a regular user)
+	d. To start using the cluster need to run (as a regular user)
 ```bash
 	      $ mkdir -p $HOME/.kube
 	      $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 	      $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-	d. To create a POD network install weave network
+	e. To create a POD network install weave network
 ```
 	      $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```		
