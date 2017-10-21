@@ -150,7 +150,7 @@ EOF
   	2.Become root (e.g. sudo su -) 
   	3.Run the command that was output by kubeadm init. For example:
 ```bash	
-	$ kubeadm join --token <token> <master-ip>:<master-port>
+	$ kubeadm join --token <token> <master-ip>:<master-port> --discovery-token-ca-cert-hash <hash value>
 ```
 	4.To get the token of master is received on executing command  “kubeadm init” in Master
 ```
