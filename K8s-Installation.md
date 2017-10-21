@@ -56,6 +56,12 @@ EOF
 ```bash	
 	      $ kubeadm init 
 ```
+        b. Save the join command to run on slave node 
+```bash
+	kubeadm join --token b019d9.1c2bceadba43a96a 10.140.0.2:6443 --discovery-t
+	oken-ca-cert-hash sha256:0ff9a5cc627d07d038aa959fb736e2999da0f535de0bd04e69a
+	916c43e5c53a3
+```
 	b. Exit from the root user
 ```bash
 	      $ exit
@@ -146,4 +152,6 @@ EOF
 
 
 
-kubeadm join --token 77b91b.0fa5009c2b0b227a 172.31.20.158:443
+kubeadm join --token b019d9.1c2bceadba43a96a 10.140.0.2:6443 --discovery-t
+oken-ca-cert-hash sha256:0ff9a5cc627d07d038aa959fb736e2999da0f535de0bd04e69a
+916c43e5c53a3
