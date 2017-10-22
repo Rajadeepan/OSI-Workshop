@@ -75,24 +75,36 @@ check the value of increase in the cpu utilization in a different window.   Also
   Delete the pod which is stressed the replica count will come down.
 
 ### PDB: 
-#### Create a poddisruptionbudgets with maxUnavailable as 1
+#### Create a poddisruptionbudget.yaml with maxUnavailable as 1
 ```bash
- kubectl create –f pdb.yaml
+ kubectl create -f poddisruptionbudget.yaml
 ``` 
 #### Drain one of slave node:
 ```bash
  kubectl drain raj-slave2 --ignore-daemonsets
 ``` 
-  watch the deployment  and pod to see how they are deleted.
+  watch the deployment and pod, to see pods  are deleted.
 
 ### Affinity :
-#### Create the deployment redis-cache
+#### Create the deployment redisaffinity.yaml(/Kubernetes/Yaml/redisaffinity.yaml)
 ```bash
-          Kubectl create –f redisaffinity.yaml
-```          
-#### Create the deployment web-server
+          kubectl create -f  redisaffinity.yaml
+```  
+#### Check which node the pod got scheduled
 ```bash
-       Kubectl create –f webaffinity.yaml
+	kubectl get pod -o wide
+	
+	NAME                           READY     STATUS    RESTARTS   AGE       IP           NODE
+	redis-cache-7bf845dcfb-2dkx9   1/1       Running   0          1m        10.47.0.10   raj-slave2	
+```
+#### Create the deployment [webaffinity.yaml](/Kubernetes/Yaml/webaffinity.yaml)
+```bash
+       kubectl create -f webaffinity.yaml
 ```       
-  Check which nodes the pods are scheduled
-  Both of the pods are in the same node.
+#### Check which node the pod got scheduled
+```bash
+NAME                           READY     STATUS    RESTARTS   AGE       IP           NODE
+redis-cache-7bf845dcfb-2dkx9   1/1       Running   0          5m        10.47.0.10   raj-slave2
+web-server-f8677f95-xzj5c      1/1       Running   0          1m        10.47.0.1    raj-slave2
+```
+  Both of the pods are created on the same node.
