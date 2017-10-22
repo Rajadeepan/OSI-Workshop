@@ -80,7 +80,7 @@ kubectl exec -it [podname]  -- /bin/bash
 ```bash
  for i in 1 2 3 4; do while : ; do : ; done & done
 ```  
-check the value of increase in the cpu utilization in a different window.   Also watch the number of replicas of the pod increase when the load increases.
+Check the value of increase in the cpu utilization in a different window.   Also watch the number of replicas of the pod increase when the load increases.
 ```bash  
  watch kubectl get hpa
 
@@ -102,7 +102,7 @@ check the value of increase in the cpu utilization in a different window.   Also
 ```bash
  kubectl drain raj-slave2 --ignore-daemonsets
 ``` 
-  watch the deployment and pod, to see pods  are deleted.
+  Watch the deployment and pod, to see pods  are deleted.
 
 ## Affinity :
 #### Create the deployment using [redisaffinity.yaml](/Kubernetes/Yaml/redisaffinity.yaml)
