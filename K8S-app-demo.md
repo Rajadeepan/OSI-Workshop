@@ -30,7 +30,7 @@
 
 #### Scale the replicas : 
 ```bash
-  kubectl scale deployment [deployment name] --replicas=10
+  kubectl scale deployment nginx-deployment --replicas=10
 ```  
 #### Install heapster :
 ```bash 
