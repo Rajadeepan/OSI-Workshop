@@ -32,6 +32,20 @@ kubectl delete pod [podname]
 ```bash
   kubectl scale deployment nginx-deployment --replicas=10
 ```
+## Upgrade the container image
+####    Edit deployment.yaml change the image name to "nginx:1.7.10" 
+```bash    
+kubectl apply -f deployment.yaml    
+```
+#### Verify the container image has upgraded
+```bash
+kubectl get rs
+NAME                          DESIRED   CURRENT   READY     AGE
+nginx-deployment-5fd4f7cd66   1         1         1         3m
+nginx-deployment-6f88768b67   0         0         0         3m
+
+kubectl describe pod [podname]
+```
 ## Horizontal Pod Autoscalar
 #### Install heapster :
 ```bash 
