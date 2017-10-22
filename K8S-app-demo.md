@@ -75,7 +75,7 @@ check the value of increase in the cpu utilization in a different window.   Also
   Delete the pod which is stressed the replica count will come down.
 
 ### PDB: 
-#### Create a poddisruptionbudget.yaml with maxUnavailable as 1
+#### Create a [poddisruptionbudget.yaml](/Kubernetes/Yaml/poddisruptionbudget.yaml) with maxUnavailable as 1
 ```bash
  kubectl create -f poddisruptionbudget.yaml
 ``` 
@@ -86,7 +86,7 @@ check the value of increase in the cpu utilization in a different window.   Also
   watch the deployment and pod, to see pods  are deleted.
 
 ### Affinity :
-#### Create the deployment redisaffinity.yaml(/Kubernetes/Yaml/redisaffinity.yaml)
+#### Create the deployment [redisaffinity.yaml](/Kubernetes/Yaml/redisaffinity.yaml)
 ```bash
           kubectl create -f  redisaffinity.yaml
 ```  
