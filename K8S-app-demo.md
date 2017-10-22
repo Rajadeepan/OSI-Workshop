@@ -75,10 +75,14 @@ check the value of increase in the cpu utilization in a different window.   Also
   Delete the pod which is stressed the replica count will come down.
 
 ### PDB: 
-#### Create a [poddisruptionbudget.yaml](/Kubernetes/Yaml/poddisruptionbudget.yaml) with maxUnavailable as 1
+#### Create a poddisruptiobudget using [poddisruptionbudget.yaml](/Kubernetes/Yaml/poddisruptionbudget.yaml) with maxUnavailable as 1
 ```bash
  kubectl create -f poddisruptionbudget.yaml
-``` 
+ 
+ kubectl get poddisruptionbudget
+  NAME      MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+  pdb       N/A             1                 0                     3m
+```
 #### Drain one of slave node:
 ```bash
  kubectl drain raj-slave2 --ignore-daemonsets
@@ -86,7 +90,7 @@ check the value of increase in the cpu utilization in a different window.   Also
   watch the deployment and pod, to see pods  are deleted.
 
 ### Affinity :
-#### Create the deployment [redisaffinity.yaml](/Kubernetes/Yaml/redisaffinity.yaml)
+#### Create the deployment using [redisaffinity.yaml](/Kubernetes/Yaml/redisaffinity.yaml)
 ```bash
           kubectl create -f  redisaffinity.yaml
 ```  
@@ -97,7 +101,7 @@ check the value of increase in the cpu utilization in a different window.   Also
 	NAME                           READY     STATUS    RESTARTS   AGE       IP           NODE
 	redis-cache-7bf845dcfb-2dkx9   1/1       Running   0          1m        10.47.0.10   raj-slave2	
 ```
-#### Create the deployment [webaffinity.yaml](/Kubernetes/Yaml/webaffinity.yaml)
+#### Create the deployment using [webaffinity.yaml](/Kubernetes/Yaml/webaffinity.yaml)
 ```bash
        kubectl create -f webaffinity.yaml
 ```       
