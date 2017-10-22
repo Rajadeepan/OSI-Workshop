@@ -1,31 +1,31 @@
 ## Create Deployment 
   #### Use the [deployment.yaml](/Kubernetes/Yaml/deployment.yaml)  file to create the deployment
 ```bash 
-	kubectl create -f deployment.yaml
+kubectl create -f deployment.yaml
 ```
  #### List the deployments:
 ```bash  
-	kubectl get deployment
+kubectl get deployment
 ```  
 #### List the replicaset
 ```bash 
-  kubectl get rs
+ kubectl get rs
 ```               
 #### List the pods
 ```bash
-  kubectl get pods
+ kubectl get pods
 ```                
 ####  Details of the pod
 ```bash
-  kubectl describe pod    OR kubectl describe pod [pod-name]
+ kubectl describe pod    (OR) kubectl describe pod [pod-name]
 ``` 
 #### Getting inside the container 
 ```bash
-  kubectl exec -it [podname]  -- /bin/bash
+ kubectl exec -it [podname]  -- /bin/bash
 ```
 #### Delete the pod
 ```bash
-	kubectl delete pod [podname]
+kubectl delete pod [podname]
 ```
 
 #### Scale the replicas : 
@@ -34,43 +34,43 @@
 ```  
 #### Install heapster :
 ```bash 
-  kubectl apply -f  https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
+ kubectl apply -f  https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
 ```
 #### install cadvisor:
 ```bash
-  sudo apt-get install cadvisor
+ sudo apt-get install cadvisor
 ```
 #### create the deployment using [autoscaledeployment.yaml](/Kubernetes/Yaml/deployment.yaml)
 ```bash
-  kubectl create -f autoscaledeployment.yaml
+ kubectl create -f autoscaledeployment.yaml
 ```  
 #### Horizontally Autoscale the deployment :
      This will create a autoscalar with target cpu utilization set to 10 percent and the number
      of replicas between 1 to 10
 ```bash
-  kubectl autoscale deployment  autoscaledeployment --cpu-percent=10 --min=1 --max=10
+ kubectl autoscale deployment  autoscaledeployment --cpu-percent=10 --min=1 --max=10
 ``` 
 #### Check Horizontal Pod Autoscalar :
 ```bash
-	kubectl get hpa
+kubectl get hpa
 	
-	NAME                  REFERENCE                        TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
-	autoscaledeployment   Deployment/autoscaledeployment   0% / 10%   1         10        1          1m
+NAME                  REFERENCE                        TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+autoscaledeployment   Deployment/autoscaledeployment   0% / 10%   1         10        1          1m
 ```
 #### Exec into the pod and run the load
   Running this command will increase the cpu utilization
 ```bash
-	kubectl exec -it [podname]  -- /bin/bash
+kubectl exec -it [podname]  -- /bin/bash
 ```	
 ```bash
-  for i in 1 2 3 4; do while : ; do : ; done & done
+ for i in 1 2 3 4; do while : ; do : ; done & done
 ```  
 check the value of increase in the cpu utilization in a different window.   Also watch the number of replicas of the pod increase when the load increases.
 ```bash  
-  watch kubectl get hpa
+ watch kubectl get hpa
 
-  NAME                  REFERENCE                        TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
-  autoscaledeployment   Deployment/autoscaledeployment   138% / 10%   1         10        4          18m
+ NAME                  REFERENCE                        TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
+ autoscaledeployment   Deployment/autoscaledeployment   138% / 10%   1         10        4          18m
 ```
   Delete the pod which is stressed the replica count will come down.
 
@@ -80,8 +80,8 @@ check the value of increase in the cpu utilization in a different window.   Also
  kubectl create -f poddisruptionbudget.yaml
  
  kubectl get poddisruptionbudget
-  NAME      MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
-  pdb       N/A             1                 0                     3m
+ NAME      MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+ pdb       N/A             1                 0                     3m
 ```
 #### Drain one of slave node:
 ```bash
@@ -92,18 +92,18 @@ check the value of increase in the cpu utilization in a different window.   Also
 ### Affinity :
 #### Create the deployment using [redisaffinity.yaml](/Kubernetes/Yaml/redisaffinity.yaml)
 ```bash
-          kubectl create -f  redisaffinity.yaml
+ kubectl create -f  redisaffinity.yaml
 ```  
 #### Check which node the pod got scheduled
 ```bash
-	kubectl get pod -o wide
+kubectl get pod -o wide
 	
-	NAME                           READY     STATUS    RESTARTS   AGE       IP           NODE
-	redis-cache-7bf845dcfb-2dkx9   1/1       Running   0          1m        10.47.0.10   raj-slave2	
+NAME                           READY     STATUS    RESTARTS   AGE       IP           NODE
+redis-cache-7bf845dcfb-2dkx9   1/1       Running   0          1m        10.47.0.10   raj-slave2	
 ```
 #### Create the deployment using [webaffinity.yaml](/Kubernetes/Yaml/webaffinity.yaml)
 ```bash
-       kubectl create -f webaffinity.yaml
+kubectl create -f webaffinity.yaml
 ```       
 #### Check which node the pod got scheduled
 ```bash
