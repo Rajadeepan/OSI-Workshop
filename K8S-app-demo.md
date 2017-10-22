@@ -21,7 +21,7 @@
 ``` 
 #### Getting inside the container 
 ```bash
-  kubectl exec –it [podname]  -- /bin/bash
+  kubectl exec -it [podname]  -- /bin/bash
 ```
 #### Delete the pod
 ```bash
