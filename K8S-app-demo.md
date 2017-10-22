@@ -1,4 +1,4 @@
-## Create Deployment 
+## Deployment 
   #### Use the [deployment.yaml](/Kubernetes/Yaml/deployment.yaml)  file to create the deployment
 ```bash 
 kubectl create -f deployment.yaml
@@ -31,7 +31,8 @@ kubectl delete pod [podname]
 #### Scale the replicas : 
 ```bash
   kubectl scale deployment nginx-deployment --replicas=10
-```  
+```
+## Horizontal Pod Autoscalar
 #### Install heapster :
 ```bash 
  kubectl apply -f  https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
