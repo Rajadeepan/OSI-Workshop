@@ -17,7 +17,7 @@
 ```                
 ####  Details of the pod
 ```bash
-  kubectl describe pods
+  kubectl describe pod    OR kubectl describe pod [pod-name]
 ``` 
 #### Getting inside the container 
 ```bash
