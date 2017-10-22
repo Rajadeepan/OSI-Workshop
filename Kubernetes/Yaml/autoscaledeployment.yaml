@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta2 # for versions before 1.7.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: autoscaledeployment
+  labels:
+    app: hpanginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hpanginx
+  template:
+    metadata:
+      labels:
+        app: hpanginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 200m
+            memory: 400Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
