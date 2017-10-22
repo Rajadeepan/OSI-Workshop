@@ -9,19 +9,19 @@ kubectl get deployment
 ```  
 #### List the replicaset
 ```bash 
- kubectl get rs
+kubectl get rs
 ```               
 #### List the pods
 ```bash
- kubectl get pods
+kubectl get pods
 ```                
 ####  Details of the pod
 ```bash
- kubectl describe pod    (OR) kubectl describe pod [pod-name]
+kubectl describe pod    (OR) kubectl describe pod [pod-name]
 ``` 
 #### Getting inside the container 
 ```bash
- kubectl exec -it [podname]  -- /bin/bash
+kubectl exec -it [podname]  -- /bin/bash
 ```
 #### Delete the pod
 ```bash
@@ -30,7 +30,7 @@ kubectl delete pod [podname]
 
 #### Scale the replicas : 
 ```bash
-  kubectl scale deployment nginx-deployment --replicas=10
+kubectl scale deployment nginx-deployment --replicas=10
 ```
 ## Upgrade the container image
 ####    Edit deployment.yaml change the image name to "nginx:1.7.10" 
