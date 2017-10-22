@@ -1,7 +1,7 @@
 ## Create Deployment 
- #### Use the deployment.yaml  file to create the deployment
+  #### Use the [deployment.yaml](/Kubernetes/Yaml/deployment.yaml)  file to create the deployment
 ```bash 
-	kubectl create –f deployment.yaml
+	kubectl create -f deployment.yaml
 ```
  #### List the deployments:
 ```bash  
